@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Natija</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .result-card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 450px; }
+        h2 { color: #007bff; text-align: center; border-bottom: 2px solid #f0f2f5; padding-bottom: 10px; margin-top: 0; }
+        .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f2f5; }
+        .info-label { font-weight: bold; color: #555; }
+        .info-value { color: #333; }
+        a { display: block; text-align: center; margin-top: 25px; padding: 12px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; transition: background-color 0.3s; }
+        a:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+<div class="result-card">
+    <h2>Talaba haqida ma'lumot</h2>
+
+    <div class="info-row">
+        <span class="info-label">ID:</span>
+        <span class="info-value" th:text="${student.id}"></span>
+    </div>
+    <div class="info-row">
+        <span class="info-label">F.I.Sh:</span>
+        <span class="info-value" th:text="${student.surname} + ' ' + ${student.name} + ' ' + ${student.patronymic}"></span>
+    </div>
+    <div class="info-row">
+        <span class="info-label">E-mail:</span>
+        <span class="info-value" th:text="${student.email}"></span>
+    </div>
+    <div class="info-row">
+        <span class="info-label">Guruh:</span>
+        <span class="info-value" th:text="${student.groupName}"></span>
+    </div>
+    <div class="info-row">
+        <span class="info-label">Portal uchun login:</span>
+        <span class="info-value" th:text="${student.login}" style="color: #e83e8c; font-weight: bold;"></span>
+    </div>
+
+    <a href="/form">Yangi ma'lumot kiritish</a>
+</div>
+</body>
+</html>
