@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета студента</title>
+    <link rel="stylesheet" th:href="@{/app.css}">
+</head>
+<body>
+<main class="paper">
+<h1>Анкета студента</h1>
+<p class="muted">Введите данные для формирования группы и логина образовательного портала.</p>
+<form th:action="@{/form}" th:object="${student}" method="post">
+    <ul class="error" th:if="${#fields.hasAnyErrors()}">
+        <li th:each="error : ${#fields.allErrors()}" th:text="${error}"></li>
+    </ul>
+<div class="grid">
+    <label>Идентификатор<input type="number" th:field="*{id}" min="1" required></label>
+    <label>Фамилия<input type="text" th:field="*{surname}" required maxlength="80"></label>
+    <label>Имя<input type="text" th:field="*{name}" required maxlength="80"></label>
+    <label>Отчество<input type="text" th:field="*{patronymic}" required></label>
+    <label>Электронная почта<input type="email" th:field="*{email}" required></label>
+    <label>Год поступления<input type="number" th:field="*{enrollmentYear}" min="1900" max="2100" required></label>
+</div>
+<div class="actions">
+    <button type="submit">Сформировать</button>
+    <button class="secondary" type="reset">Очистить</button>
+</div>
+</form>
+</main>
+</body>
+</html>

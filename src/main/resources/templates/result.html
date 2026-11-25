@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка студента</title>
+    <link rel="stylesheet" th:href="@{/app.css}">
+</head>
+<body>
+<main class="paper">
+<h1>Карточка студента</h1>
+<dl>
+    <dt>Идентификатор</dt><dd th:text="${student.id}"></dd>
+    <dt>Фамилия</dt><dd th:text="${student.surname}"></dd>
+    <dt>Имя</dt><dd th:text="${student.name}"></dd>
+    <dt>Отчество</dt><dd th:text="${student.patronymic}"></dd>
+    <dt>Электронная почта</dt><dd th:text="${student.email}"></dd>
+    <dt>Год поступления</dt><dd th:text="${student.enrollmentYear}"></dd>
+    <dt>Группа</dt><dd th:text="${student.groupName}"></dd>
+    <dt>Логин для портала</dt><dd th:text="${student.login}"></dd>
+</dl>
+<a class="button" th:href="@{/form}">Заполнить новую анкету</a>
+</main>
+</body>
+</html>
